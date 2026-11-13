@@ -1,0 +1,58 @@
+{
+  "sources": {
+    "air": {
+      "release": "a7",
+      "capabilities": {
+        "filter_null": "sql",
+        "string_order": "codepoint",
+        "supported_ops": [
+          "eq",
+          "gt"
+        ]
+      },
+      "rows": [
+        {
+          "row_id": "a1",
+          "shipment": "s1",
+          "code": "Ab",
+          "mass": 4
+        },
+        {
+          "row_id": "a2",
+          "shipment": "s1",
+          "code": null,
+          "mass": 6
+        }
+      ]
+    },
+    "road": {
+      "release": "r9",
+      "capabilities": {
+        "filter_null": "python",
+        "string_order": "casefold",
+        "supported_ops": [
+          "eq"
+        ]
+      },
+      "rows": [
+        {
+          "row_id": "r1",
+          "shipment": "s1",
+          "hub": "H1"
+        },
+        {
+          "row_id": "r2",
+          "shipment": "s1",
+          "hub": "H2"
+        }
+      ]
+    }
+  },
+  "release_map": [
+    {
+      "release": "daily-1",
+      "air": "a7",
+      "road": "r9"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# 资料及接口契约
+
+来源open(release)返回绑定不可变release的token，page(token,offset,limit)给rows、next及complete。完整性以complete且next=null为准，空页也可能有next。来源能力声明filter_null=sql或python、string_order=codepoint或casefold，以及supported_ops。release用于跨源业务批次映射，只有release_map中明确配对的来源版本可以联合；不是靠本地时间推断全局事务。现有Source只提供读取，没有联邦规划或关联执行。查询子集为等值inner/left join、AND比较过滤和字段投影，比较null产生UNKNOWN，WHERE只保留TRUE；来源page的参数只接受其声明支持的结构化谓词。
+
+所有记录为合成仓资料；data/source.json保存原始字段和身份。storage.py负责摘要读取，table.py保存独立关系版本，relations.py保留SQL三值和袋语义。inspect只调用现有基础接口，不提供新增查询或管理能力。
